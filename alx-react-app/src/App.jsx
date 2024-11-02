@@ -7,14 +7,13 @@ import Footer from './components/Footer';
 import UserProfile from './components/UserProfile';
 
 const App = () => {
-    const userData = {
-        name: "Alice",
-        age: 25,
-        bio: "Loves hiking and photography",
-    };
     return (
         <div className="App"> 
-            <UserProfile {...userData} />  
+            <UserProfile 
+                name="John Doe" 
+                age={30} 
+                bio="A software developer based in San Francisco." 
+            />
             <Header />
             <WelcomeMessage />
             <MainContent />
