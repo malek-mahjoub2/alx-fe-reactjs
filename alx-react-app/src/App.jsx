@@ -1,5 +1,6 @@
+
 import React from 'react';
-import WelcomeMessage from './components/WelcomeMessage'; // Adjust the path if needed
+import WelcomeMessage from 'components/WelcomeMessage'; // Adjust the path if needed
 
 const App = () => {
     return (
