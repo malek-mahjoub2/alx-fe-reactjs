@@ -14,7 +14,11 @@ const App = () => {
 
   return (
     <div className="App">
-      <UserProfile {...userData} />  {/* Pass props using spread operator */}
+       <UserProfile
+            name="Alice"
+            age={25}
+            bio="Loves hiking and photography"
+        />
       <Header />
       <WelcomeMessage />
       <MainContent />
