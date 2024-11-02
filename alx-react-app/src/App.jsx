@@ -4,7 +4,6 @@ import Header from './Header';
 import WelcomeMessage from './components/WelcomeMessage';
 import MainContent from './MainContent';
 import Footer from './Footer';
-import ReactDOM from 'react-dom/client';
 
 const App = () => {
     return (
