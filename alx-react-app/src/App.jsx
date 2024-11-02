@@ -1,26 +1,26 @@
-
-import React from 'react'
-import Header from './components/Header';
-import WelcomeMessage from './components/WelcomeMessage';
-import MainContent from './MainContent';
-import Footer from './components/Footer';
+import React from 'react';
 import UserProfile from './components/UserProfile';
+import Header from './components/Header'; // Assuming these exist
+import WelcomeMessage from './components/WelcomeMessage';
+import MainContent from './components/MainContent';
+import Footer from './components/Footer';
 
 const App = () => {
-    return (
-        <div className="App"> 
-            <UserProfile 
-                name="John Doe" 
-                age={30} 
-                bio="A software developer based in San Francisco." 
-            />
-            <Header />
-            <WelcomeMessage />
-            <MainContent />
-            <Footer />
-        </div>
-        
-    );
+  const userData = {
+    name: 'John Doe',
+    age: 30,
+    bio: 'A software developer based in San Francisco.',
+  };
+
+  return (
+    <div className="App">
+      <UserProfile {...userData} />  {/* Pass props using spread operator */}
+      <Header />
+      <WelcomeMessage />
+      <MainContent />
+      <Footer />
+    </div>
+  );
 };
 
 export default App;
