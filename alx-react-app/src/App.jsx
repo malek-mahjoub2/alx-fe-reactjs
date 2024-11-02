@@ -11,10 +11,10 @@ const App = () => {
         name: "Alice",
         age: 25,
         bio: "Loves hiking and photography",
-      };
+    };
     return (
         <div className="App"> 
-             <UserProfile {...userData} />  
+            <UserProfile {...userData} />  
             <Header />
             <WelcomeMessage />
             <MainContent />
