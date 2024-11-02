@@ -12,7 +12,7 @@ const App = () => {
             <WelcomeMessage />
             <MainContent />
             <Footer />
-      </div>
+        </div>
         
     );
 };
