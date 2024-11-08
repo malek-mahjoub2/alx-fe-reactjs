@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { UserContext } from './components/UserContext';
-import ProfilePage from './components/ProfilePage';
+import ProfilePage from './components/UserProfile';
 import UserContext from './components/UserContext';
 
 function App() {
