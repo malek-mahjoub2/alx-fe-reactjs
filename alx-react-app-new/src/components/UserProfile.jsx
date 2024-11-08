@@ -1,11 +1,11 @@
 import React from 'react';
 const UserProfile = (props) => {
     return (
-      <div className="user-profile" style={{ border: '1px solid gray', padding: '10px', margin: '10px' }}>
-        <h2 style={{fontSize: '10px',color: 'red',textDecoration:'underline'}}>{props.name}</h2>
-        <p style={{fontSize: '10px',color: 'red',textDecoration:'underline'}}>Age: {props.age}</p>
-        <p style={{fontSize: '10px',color: 'red',textDecoration:'underline'}}>Bio: {props.bio}</p>
-      </div>
+      <div style={{ border: '1px solid gray', padding: '15px', margin: '10px', borderRadius: '8px' }}>
+      <h2 style={{ color: 'blue', fontSize: '24px' }}>{props.name}</h2>
+      <p style={{ fontSize: '18px' }}>Age: <span style={{ fontWeight: 'bold' }}>{props.age}</span></p>
+      <p style={{ fontSize: '16px', color: '#555' }}>Bio: {props.bio}</p>
+    </div>
     );
   };
   
