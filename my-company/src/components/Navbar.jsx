@@ -1,24 +1,25 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import './Navbar.css';  // Import the CSS file
 
 function Navbar() {
   return (
-    <nav style={{ padding: '10px', backgroundColor: '#333', color: '#fff' }}>
-      <ul style={{ listStyleType: 'none', padding: 0, display: 'flex' }}>
-        <li style={{ margin: '0 10px' }}>
-          <Link to="/" style={{ color: '#fff', textDecoration: 'none' }}>Home</Link>
+    <nav className="navbar">
+      <ul className="navList">
+        <li className="navItem">
+          <Link to="/">Home</Link>
         </li>
-        <li style={{ margin: '0 10px' }}>
-          <Link to="/about" style={{ color: '#fff', textDecoration: 'none' }}>About</Link>
+        <li className="navItem">
+          <Link to="/about">About</Link>
         </li>
-        <li style={{ margin: '0 10px' }}>
-          <Link to="/services" style={{ color: '#fff', textDecoration: 'none' }}>Services</Link>
+        <li className="navItem">
+          <Link to="/services">Services</Link>
         </li>
-        <li style={{ margin: '0 10px' }}>
-          <Link to="/contact" style={{ color: '#fff', textDecoration: 'none' }}>Contact</Link>
+        <li className="navItem">
+          <Link to="/contact">Contact</Link>
         </li>
       </ul>
     </nav>
   );
 }
-
 export default Navbar;
