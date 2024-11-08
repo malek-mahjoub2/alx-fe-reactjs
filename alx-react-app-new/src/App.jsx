@@ -15,6 +15,8 @@ const App = () => {
 
   return (
     <div className="App">
+        <h1>Welcome to the Counter App</h1>
+        <Counter />
         <UserProfile
             name="Alice"
             age={25}
@@ -23,7 +25,7 @@ const App = () => {
       <Header />
       
       <MainContent />
-      <Counter/>
+      
       <Footer />
       <WelcomeMessage />
       <Footer />
