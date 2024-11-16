@@ -20,6 +20,18 @@ const RecipeList = () => {
 
   return (
     <div>
+       <Router>  {/* Wrap the entire application in a Router */}
+      <div>
+        <h1>Recipe Sharing App</h1>
+        <Routes>  {/* Define all routes inside Routes */}
+          <Route path="/" element={<RecipeList />} />  {/* Route to list of recipes */}
+          
+          <Route path="/add" element={<AddRecipeForm />} />  {/* Route to add a new recipe */}
+          
+          <Route path="/edit/:id" element={<EditRecipeForm />} />  {/* Route to edit an existing recipe */}
+          
+          <Route path="/recipe/:id" element={<RecipeDetails />} />  {/* Route to view a recipe's details */}
+        </Routes>
       <SearchBar />  {/* Add SearchBar to allow searching */}
       {recipes.length > 0 ? (
         recipes.map((recipe) => (
