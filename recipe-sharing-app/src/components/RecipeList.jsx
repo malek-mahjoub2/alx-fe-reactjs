@@ -1,10 +1,22 @@
-import { useRecipeStore } from '../recipeStore';
+// src/components/RecipeList.jsx
+import React, { useEffect } from 'react';
+import { useRecipeStore } from '../store/recipeStore';  // Assuming your Zustand store is in this directory
+import SearchBar from './SearchBar';  // The SearchBar component for updating the search term
 
 const RecipeList = () => {
-  const recipes = useRecipeStore((state) => state.recipes);  // Access the recipes from Zustand store
+  // Access filtered recipes from Zustand store
+  const recipes = useRecipeStore((state) => state.filteredRecipes);  
+  // Access the function to filter recipes from Zustand store
+  const filterRecipes = useRecipeStore((state) => state.filterRecipes);
+
+  // Whenever the filtered recipes change, we apply the filter
+  useEffect(() => {
+    filterRecipes();  // Trigger filtering whenever the search term or recipes list changes
+  }, [filterRecipes]);
 
   return (
     <div>
+      <SearchBar />  {/* Add SearchBar to allow searching */}
       {recipes.length > 0 ? (
         recipes.map((recipe) => (
           <div key={recipe.id}>
@@ -13,7 +25,7 @@ const RecipeList = () => {
           </div>
         ))
       ) : (
-        <p>No recipes available. Add a new recipe!</p>
+        <p>No recipes available. Try adjusting your search!</p>
       )}
     </div>
   );
