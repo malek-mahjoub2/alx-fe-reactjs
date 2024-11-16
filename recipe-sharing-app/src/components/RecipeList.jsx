@@ -1,8 +1,8 @@
 // src/components/RecipeList.jsx
 import React, { useEffect } from 'react';
 import { useRecipeStore } from '../store/recipeStore';  // Assuming your Zustand store is in this directory
-import SearchBar from './SearchBar';  // The SearchBar component for updating the search term
-
+import SearchBar from './SearchBar'; 
+import { Link } from 'react-router-dom';
 const RecipeList = () => {
   // Access filtered recipes from Zustand store
   const recipes = useRecipeStore((state) => state.filteredRecipes);  
