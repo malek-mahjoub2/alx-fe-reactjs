@@ -2,7 +2,11 @@
 import React, { useEffect } from 'react';
 import { useRecipeStore } from '../store/recipeStore';  // Assuming your Zustand store is in this directory
 import SearchBar from './SearchBar';  // The SearchBar component for updating the search term
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';  // Import routing components
+import RecipeList from './components/RecipeList';  // Import RecipeList component
+import RecipeDetails from './components/RecipeDetails';  // Import RecipeDetails component
+import AddRecipeForm from './components/AddRecipeForm';  // Import AddRecipeForm component
+import EditRecipeForm from './components/EditRecipeForm'; 
 const RecipeList = () => {
   // Access filtered recipes from Zustand store
   const recipes = useRecipeStore((state) => state.filteredRecipes);  
