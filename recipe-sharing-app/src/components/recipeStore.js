@@ -2,19 +2,18 @@ import create from 'zustand';
 
 const useRecipeStore = create(set => ({
   recipes: [],
-  searchTerm: '',  
-  favorites: [],  // Array to hold IDs of favorite recipes
-  recommendations: [],  // List of recommended recipes based on favorites
+  searchTerm: '',
+  favorites: [],
+  recommendations: [],
 
   filteredRecipes: [],
-  addFavorite: (recipeId) => set((state) => ({
-    favorites: [...state.favorites, recipeId]
-  })),
-  removeFavorite: (recipeId) => set((state) => ({
-    favorites: state.favorites.filter((id) => id !== recipeId)
-  })),
 
-  addRecipe: (newRecipe) => set(state => ({ recipes: [...state.recipes, newRecipe] })),
+  // Explicit setRecipes function
+  setRecipes: (newRecipes) => set({ recipes: newRecipes }),
+
+  addRecipe: (newRecipe) => set(state => ({
+    recipes: [...state.recipes, newRecipe]
+  })),
   updateRecipe: (updatedRecipe) => set(state => ({
     recipes: state.recipes.map(recipe => 
       recipe.id === updatedRecipe.id ? updatedRecipe : recipe
@@ -24,7 +23,7 @@ const useRecipeStore = create(set => ({
   filterRecipes: () => set((state) => ({
     filteredRecipes: state.recipes.filter((recipe) =>
       recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase()) || 
-      recipe.description.toLowerCase().includes(state.searchTerm.toLowerCase())  // Also filter by description
+      recipe.description.toLowerCase().includes(state.searchTerm.toLowerCase())
     ),
   })),
   deleteRecipe: (recipeId) => set(state => ({
@@ -32,10 +31,16 @@ const useRecipeStore = create(set => ({
   })),
   generateRecommendations: () => set((state) => {
     const recommended = state.recipes.filter((recipe) =>
-      state.favorites.includes(recipe.id)  // Recommend recipes that are in the favorites list
+      state.favorites.includes(recipe.id)
     );
     return { recommendations: recommended };
   }),
+  addFavorite: (recipeId) => set((state) => ({
+    favorites: [...state.favorites, recipeId]
+  })),
+  removeFavorite: (recipeId) => set((state) => ({
+    favorites: state.favorites.filter((id) => id !== recipeId)
+  })),
 }));
 
 export { useRecipeStore };

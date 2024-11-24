@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useRecipeStore } from '../store/recipeStore';  // Make sure the path to recipeStore.js is correct
-
+import { useNavigate } from 'react-router-dom';
 const AddRecipeForm = () => {
   const addRecipe = useRecipeStore(state => state.addRecipe);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     if (title && description) {
