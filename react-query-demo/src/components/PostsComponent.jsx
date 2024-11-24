@@ -2,6 +2,16 @@ import React from 'react';
 import { useQuery } from 'react-query';
 
 // Function to fetch posts from the API
+const { data, error, isLoading, refetch } = useQuery(
+    'posts',
+    fetchPosts,
+    {
+      staleTime: 5000,
+      cacheTime: 10000,
+      refetchOnWindowFocus: true,
+      keepPreviousData: true,
+    }
+  );
 const fetchPosts = async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/posts');
   if (!response.ok) {
