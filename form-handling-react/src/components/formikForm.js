@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-
+// Yup validation schema
 const validationSchema = Yup.object({
   username: Yup.string()
     .required('Username is required')
@@ -16,7 +16,7 @@ const validationSchema = Yup.object({
 });
 
 const FormikForm = () => {
-  // Initial values for Formik form
+  // Initial form values
   const initialValues = {
     username: '',
     email: '',
@@ -37,42 +37,54 @@ const FormikForm = () => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        <Form>
-          <div>
-            <label htmlFor="username">Username</label>
-            <Field
-              type="text"
-              id="username"
-              name="username"
-              placeholder="Enter your username"
-            />
-            <ErrorMessage name="username" component="div" style={{ color: 'red' }} />
-          </div>
+        {({ errors, touched }) => (
+          <Form>
+            {/* Username Field */}
+            <div>
+              <label htmlFor="username">Username</label>
+              <Field
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+              />
+              {/* Display validation error for username */}
+              <ErrorMessage name="username" component="div" style={{ color: 'red' }} />
+              {errors.username && touched.username && <div>{errors.username}</div>}
+            </div>
 
-          <div>
-            <label htmlFor="email">Email</label>
-            <Field
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter your email"
-            />
-            <ErrorMessage name="email" component="div" style={{ color: 'red' }} />
-          </div>
+            {/* Email Field */}
+            <div>
+              <label htmlFor="email">Email</label>
+              <Field
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+              />
+              {/* Display validation error for email */}
+              <ErrorMessage name="email" component="div" style={{ color: 'red' }} />
+              {errors.email && touched.email && <div>{errors.email}</div>}
+            </div>
 
-          <div>
-            <label htmlFor="password">Password</label>
-            <Field
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Enter your password"
-            />
-            <ErrorMessage name="password" component="div" style={{ color: 'red' }} />
-          </div>
+            {/* Password Field */}
+            <div>
+              <label htmlFor="password">Password</label>
+              <Field
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+              />
+              {/* Display validation error for password */}
+              <ErrorMessage name="password" component="div" style={{ color: 'red' }} />
+              {errors.password && touched.password && <div>{errors.password}</div>}
+            </div>
 
-          <button type="submit">Register</button>
-        </Form>
+            {/* Submit Button */}
+            <button type="submit">Register</button>
+          </Form>
+        )}
       </Formik>
     </div>
   );
