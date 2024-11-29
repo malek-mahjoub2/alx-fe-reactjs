@@ -1,5 +1,5 @@
 {
-  "name": "react-query-demo",
+  "name": "tailwind-react-integration",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,10 +9,10 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
     "typescript": "~5.6.2",
-    "vite": "^5.4.10"
-  },
-  "dependencies": {
-    "react-query": "^3.39.3"
+    "vite": "^6.0.1"
   }
 }
