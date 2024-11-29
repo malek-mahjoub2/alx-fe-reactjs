@@ -1,5 +1,6 @@
 
 module.exports = {
+  purge:[],
   content: [
     "./src/**/*.{js,jsx,ts,tsx}", // Specify which files Tailwind should scan for class names
     "./public/index.html",        // Include HTML files for purging unused styles
