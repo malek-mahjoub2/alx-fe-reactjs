@@ -1,35 +1,73 @@
-
-
+// src/components/AddRecipeForm.jsx
 import React, { useState } from 'react';
 
 const AddRecipeForm = () => {
+  // State to store form inputs
   const [title, setTitle] = useState('');
   const [ingredients, setIngredients] = useState('');
   const [steps, setSteps] = useState('');
-  const [error, setError] = useState('');
+  
+  // State to store errors
+  const [errors, setErrors] = useState({
+    title: '',
+    ingredients: '',
+    steps: '',
+  });
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    if (!title || !ingredients || !steps) {
-      setError('All fields are required!');
-      return;
+    // Validate the form
+    const validationErrors = validate();
+    
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return; // Stop form submission if errors are found
     }
-    setError('');
-
+    
+    // If validation passes, reset errors and log the data
+    setErrors({});
+    
+    // For now, just log the new recipe data
     console.log('New Recipe:', { title, ingredients, steps });
     
+    // Reset form fields after submission
     setTitle('');
     setIngredients('');
     setSteps('');
+  };
+
+  // Validation function
+  const validate = () => {
+    const errors = {};
+
+    // Check for empty fields and add corresponding errors
+    if (!title) {
+      errors.title = 'Title is required';
+    }
+    if (!ingredients) {
+      errors.ingredients = 'Ingredients are required';
+    }
+    if (!steps) {
+      errors.steps = 'Preparation steps are required';
+    }
+
+    return errors;
   };
 
   return (
     <div className="max-w-lg mx-auto p-4 border rounded-lg shadow-lg">
       <h2 className="text-2xl font-bold mb-4">Add a New Recipe</h2>
       
-      {error && <div className="text-red-500 mb-4">{error}</div>}
+      {/* Display errors */}
+      <div className="text-red-500 mb-4">
+        {Object.keys(errors).map((key) => (
+          <p key={key}>{errors[key]}</p>
+        ))}
+      </div>
       
+      {/* Recipe Form */}
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Title Field */}
         <div>
