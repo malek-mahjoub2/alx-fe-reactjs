@@ -3,7 +3,21 @@
       "id": 1,
       "title": "Spaghetti Carbonara",
       "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-      "image": "https://via.placeholder.com/150"
+      "image": "https://via.placeholder.com/150",
+      "ingredients":  [
+      "200g spaghetti",
+      "100g pancetta",
+      "2 large eggs",
+      "50g Parmesan cheese"
+      ],
+    
+    "instructions": [
+      "Cook the spaghetti according to package instructions.",
+      "Fry the pancetta in a pan until crispy.",
+      "Beat the eggs and mix with Parmesan.",
+      "Combine pasta, pancetta, and egg mixture.",
+      "Serve with extra cheese and black pepper."
+    ]
     },
     {
       "id": 2,
@@ -15,7 +29,22 @@
       "id": 3,
       "title": "Vegetable Stir Fry",
       "summary": "A healthy mix of stir-fried vegetables with soy sauce, garlic, and sesame oil.",
-      "image": "https://via.placeholder.com/150"
-    }
-  ]
+      "image": "https://via.placeholder.com/150",
+      "ingredients": [
+      "500g chicken breast",
+      "1 onion, chopped",
+      "200g tomato paste",
+      "200ml cream"
+    ],
+    "instructions": [
+      "Marinate chicken with spices.",
+      "Grill the chicken until fully cooked.",
+      "Fry onions and add tomato paste.",
+      "Add grilled chicken and cream to the sauce.",
+      "Simmer for 20 minutes and serve."
+    ]
+  }
+]
+   
+  
   
