@@ -41,12 +41,26 @@ const Search = () => {
           placeholder="Enter GitHub username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="search-input"
+          className="search-input border rounded px-2 py-1 focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
         />
-        <button type="submit" className="search-button">
-          Search
-        </button>
-      </form>
+        <input
+        type="text"
+        placeholder="Location (e.g., San Francisco)"
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
+        className="search-input border rounded px-2 py-1 focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+      />
+      <input
+      type="number"
+      placeholder="Minimum repositories count"
+      value={minRepos}
+      onChange={(e) => setMinRepos(e.target.value)}
+      className="search-input border rounded px-2 py-1 focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+     />
+      <button type="submit" className="search-button bg-blue-500 text-white rounded px-4 py-2 hover:bg-blue-700">
+      Search
+      </button>
+  </form>
 
       {loading && <p>Loading...</p>}
       {error && <p className="error-message">{error}</p>}
