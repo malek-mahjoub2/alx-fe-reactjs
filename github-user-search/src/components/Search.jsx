@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const Search = () => {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState('');
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const handleSearch = async (e) => {
     e.preventDefault();
 
     setUser(null);
-    setError("");
+    setError('');
     setLoading(true);
 
     try {
       const response = await axios.get(`https://api.github.com/users/${username}`);
       setUser(response.data);
     } catch (err) {
-      setError("Looks like we can't find the user");
+      setError('Looks like we can\'t find the user');
     } finally {
       setLoading(false);
     }
