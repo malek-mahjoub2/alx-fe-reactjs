@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import Search from './components/Search';
 import './styles/tailwind.css';
+import './index.css';
 import Search from './Search'; 
 const myData = [
   { id: 1, name: 'Item 1' },
