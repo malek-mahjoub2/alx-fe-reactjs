@@ -8,8 +8,8 @@ export const searchUsers = async (username, location, minRepos) => {
     query += `+repo:${minRepos}`;
   }
 
-  const url = `https://api.github.com/search/users?${query}`;
-  const response = await axios.get(url);
+  
+  const response = await axios.get(`https://api.github.com/search/users?q=${query}`);
   return response.data.items;
 };
 export const fetchUserData = async (username) => {
